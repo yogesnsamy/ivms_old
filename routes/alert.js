@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+const { twilioaccsid, twilioauthtoken } = require("../config");
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
@@ -10,8 +11,8 @@ router.post("/", function(req, res, next) {
   // Download the helper library from https://www.twilio.com/docs/node/install
   // Your Account Sid and Auth Token from twilio.com/console
   // DANGER! This is insecure. See http://twil.io/secure
-  const accountSid = "ACbeb5f1735912ccca7b43014f4bc848dd";
-  const authToken = "91a8e25209fe9184abcaa5a4550d18e8";
+  const accountSid = twilioaccsid;
+  const authToken = twilioauthtoken;
   const client = require("twilio")(accountSid, authToken);
 
   client.messages
